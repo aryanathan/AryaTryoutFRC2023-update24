@@ -77,7 +77,7 @@ public class RobotContainer {
   private final Joystick coPanel = new Joystick(OIConstants.usbCoPanel);
 
   private final CommandXboxController xboxController = new CommandXboxController(OIConstants.usbXboxController);
-  private boolean rumbling = false;
+  //private boolean rumbling = false;
   private boolean lastEnabledModeAuto = false;    // True if the last mode was auto
 
   // Set to this pattern when the robot is disabled
@@ -133,10 +133,10 @@ public class RobotContainer {
         trajectoryCache.cache[TrajectoryType.test.value], driveTrain, log));
     SmartDashboard.putData("Drive Trajectory Curve Relative", new DriveTrajectory(CoordType.kRelative, StopType.kBrake, 
         trajectoryCache.cache[TrajectoryType.testCurve.value], driveTrain, log));
-    SmartDashboard.putData("Drive Trajectory Barrel Race", new DriveTrajectory(CoordType.kRelative, StopType.kBrake, 
-        trajectoryCache.cache[TrajectoryType.barrelRace.value], driveTrain, log));
     SmartDashboard.putData("Drive Trajectory Absolute", new DriveTrajectory(CoordType.kAbsolute, StopType.kBrake, 
         trajectoryCache.cache[TrajectoryType.test.value], driveTrain, log));  
+    SmartDashboard.putData("Barrel Race", new DriveTrajectory(CoordType.kAbsolute, StopType.kBrake, 
+        trajectoryCache.cache[TrajectoryType.test.value], driveTrain, log));
     SmartDashboard.putData("Drive Trajectory S-Fwd Relative", new DriveTrajectory(
           CoordType.kRelative, StopType.kBrake,
           new TrajectoryFacing(rotationFront, rotationFront,
@@ -233,10 +233,10 @@ public class RobotContainer {
     Trigger xbLB = xboxController.leftBumper();
     Trigger xbRB = xboxController.rightBumper();
     Trigger xbBack = xboxController.back();
-    Trigger xbStart = xboxController.start();
+    //Trigger xbStart = xboxController.start();
     Trigger xbPOVUp = xboxController.povUp();
     Trigger xbPOVRight = xboxController.povRight();
-    Trigger xbPOVLeft = xboxController.povLeft();
+    //Trigger xbPOVLeft = xboxController.povLeft();
     Trigger xbPOVDown = xboxController.povDown();
    
     //a
@@ -467,13 +467,13 @@ public class RobotContainer {
    * Sets the rumble on the XBox controller
    * @param percentRumble The normalized value (0 to 1) to set the rumble to
    */
-	public void setXBoxRumble(double percentRumble) {
-		xboxController.getHID().setRumble(RumbleType.kLeftRumble, percentRumble);
-    xboxController.getHID().setRumble(RumbleType.kRightRumble, percentRumble);
+	//public void setXBoxRumble(double percentRumble) {
+	//	xboxController.getHID().setRumble(RumbleType.kLeftRumble, percentRumble);
+   // xboxController.getHID().setRumble(RumbleType.kRightRumble, percentRumble);
 
-    if (percentRumble == 0) rumbling = false;
-    else rumbling = true;
-  }
+   // if (percentRumble == 0) rumbling = false;
+   // else rumbling = true;
+ // }
   
 
   /**

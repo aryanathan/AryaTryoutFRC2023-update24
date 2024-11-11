@@ -12,7 +12,7 @@ import edu.wpi.first.math.geometry.Translation2d;
 import edu.wpi.first.math.trajectory.Trajectory;
 import edu.wpi.first.math.trajectory.TrajectoryConfig;
 import edu.wpi.first.math.trajectory.TrajectoryGenerator;
-
+import edu.wpi.first.math.util.Units;
 import frc.robot.Constants.DriveConstants;
 import frc.robot.Constants.SwerveConstants;
 
@@ -23,12 +23,12 @@ import frc.robot.Constants.SwerveConstants;
 public class TrajectoryCache {
     private FileLog log;
    
-    private static int trajectoryCount = 2;
+    private static int trajectoryCount = 3;
     public TrajectoryFacing[] cache = new TrajectoryFacing[trajectoryCount];        // array of trajectories
 
     public enum TrajectoryType {
         test(0),
-        testCurve(1);
+        testCurve(1),
         barrelRace(2);
         // CenterBalanceBlue(2),
         // CenterBalanceRed(3),
@@ -41,8 +41,8 @@ public class TrajectoryCache {
         // RightOuterOneConeBalanceRed(10),
         // Pickup(11);
 
-        @SuppressWarnings({"MemberName", "PMD.SingularField"})
-        public final int value;
+
+       public final int value;
         TrajectoryType(int value) { this.value = value; }
     }
 
@@ -185,11 +185,11 @@ public class TrajectoryCache {
                 new Translation2d(Units.inchesToMeters(300), Units.inchesToMeters(90)),
                 new Translation2d(Units.inchesToMeters(150), Units.inchesToMeters(90))
                 ),
-            ),
+            
             new Pose2d(0.9, 2.286, new Rotation2d(0.0)),
             log
             )
-    );   
+        );   
         
         // cache[TrajectoryType.CenterBalanceBlue.value] = new TrajectoryFacing(
         //     new Rotation2d(Math.PI),            // Start facing driver station
