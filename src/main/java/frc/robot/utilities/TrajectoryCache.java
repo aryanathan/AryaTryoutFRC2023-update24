@@ -29,6 +29,7 @@ public class TrajectoryCache {
     public enum TrajectoryType {
         test(0),
         testCurve(1);
+        barrelRace(2);
         // CenterBalanceBlue(2),
         // CenterBalanceRed(3),
         // LeaveCommunity(4),
@@ -161,7 +162,34 @@ public class TrajectoryCache {
                 List.of(),
                 new Pose2d(3, 3, new Rotation2d(Math.toRadians(90.0)))
             )
-        );     
+        ); 
+
+        cache[TrajectoryType.barrelRace.value] = new TrajectoryFacing(
+            new Rotation2d(0.0),            // Start facing +X direction
+            new Rotation2d(0.0),            // End facing +X direction
+            calcTrajectory("Barrel Race", 0.4, 0.4, 
+            new Pose2d(1.0922, 2.286, new Rotation2d(0.0)),
+            List.of(
+                new Translation2d(Units.inchesToMeters(90), Units.inchesToMeters(105)),
+                new Translation2d(Units.inchesToMeters(150), Units.inchesToMeters(90)),
+                new Translation2d(Units.inchesToMeters(170), Units.inchesToMeters(60)),
+                new Translation2d(Units.inchesToMeters(150), Units.inchesToMeters(30)),
+                new Translation2d(Units.inchesToMeters(120), Units.inchesToMeters(60)), 
+                new Translation2d(Units.inchesToMeters(150), Units.inchesToMeters(90)),
+                new Translation2d(Units.inchesToMeters(240), Units.inchesToMeters(90)),
+                new Translation2d(Units.inchesToMeters(270), Units.inchesToMeters(120)),
+                new Translation2d(Units.inchesToMeters(240), Units.inchesToMeters(150)),
+                new Translation2d(Units.inchesToMeters(210), Units.inchesToMeters(120)), 
+                new Translation2d(Units.inchesToMeters(240), Units.inchesToMeters(30)),
+                new Translation2d(Units.inchesToMeters(330), Units.inchesToMeters(60)),
+                new Translation2d(Units.inchesToMeters(300), Units.inchesToMeters(90)),
+                new Translation2d(Units.inchesToMeters(150), Units.inchesToMeters(90))
+                ),
+            ),
+            new Pose2d(0.9, 2.286, new Rotation2d(0.0)),
+            log
+            )
+    );   
         
         // cache[TrajectoryType.CenterBalanceBlue.value] = new TrajectoryFacing(
         //     new Rotation2d(Math.PI),            // Start facing driver station
